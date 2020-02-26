@@ -1,0 +1,23 @@
+{
+  "name": "serverless_plus_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexReshetnyak/serverless_plus_node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexReshetnyak/serverless_plus_node/issues"
+  },
+  "homepage": "https://github.com/alexReshetnyak/serverless_plus_node#readme",
+  "devDependencies": {
+    "serverless-offline": "^5.12.1"
+  }
+}

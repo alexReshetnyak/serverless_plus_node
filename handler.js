@@ -2,14 +2,16 @@
 
 module.exports.hello = async event => {
   try {
+    // console.log(event);
     // throw new Error('Something went wrong');
-
+    // const { first, second } = event; // event = '{"first": 2, "second": 10}'
+    // const sum = first + second;
+    const { name } = event.pathParameters;
     return {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: 'Go Serverless v1.0! Your function executed successfully!',
-          input: event,
+          message: 'Hello there ' + name,
         },
         null,
         2
@@ -21,7 +23,6 @@ module.exports.hello = async event => {
       body: JSON.stringify(
         {
           message: error.message,
-          input: event,
         },
         null,
         2
