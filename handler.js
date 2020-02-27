@@ -7,11 +7,14 @@ module.exports.hello = async event => {
     // const { first, second } = event; // event = '{"first": 2, "second": 10}'
     // const sum = first + second;
     const { name } = event.pathParameters;
+
+    const now = new Date();
+
     return {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: 'Hello there ' + name,
+          message: 'Hello there ' + name + ' time:' + now,
         },
         null,
         2

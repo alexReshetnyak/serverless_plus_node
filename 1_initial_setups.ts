@@ -36,3 +36,7 @@
 
 // ? Deploy one functions
 // * 9 serverless deploy function --function myFunction
+
+// ? Remove all from dev
+// * 9 serverless remove -s dev
+
