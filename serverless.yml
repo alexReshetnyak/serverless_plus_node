@@ -66,22 +66,22 @@ provider:
 
 
 functions:
-  test:
-    handler: handlers/test.test
+  handler:
+    handler: handlers/handler.handler
     events:
       - http:
-          path: test
+          path: message
           method: get
-  hello:
-    handler: handler.hello
+  # handler:
+    # handler: handlers/handler.handler
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-    events:
-      # - http:
-      #     path: message/{name}
-      #     method: get
-      - schedule: rate(1 minute)
+    # events:
+    #   - http:
+    #       path: message
+    #       method: get
+      # - schedule: rate(1 minute)
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)

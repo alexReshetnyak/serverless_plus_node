@@ -1,8 +1,13 @@
 'use strict';
 
-module.exports.test = async event => {
+// const { getPage, parsePage, saveRatingsToDB } = require('../utils');
+
+
+module.exports.handler = async event => {
   try {
-    // const { name } = event.pathParameters;
+    // const page = await getPage(event);
+
+    // console.log('PAGE: ', page);
 
     return {
       statusCode: 200,
@@ -10,8 +15,6 @@ module.exports.test = async event => {
         {
           message: 'Test ',
         },
-        null,
-        2
       ),
     };
   } catch (error) {
