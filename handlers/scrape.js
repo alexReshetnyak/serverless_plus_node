@@ -1,13 +1,14 @@
 'use strict';
 
-// const { getPage, parsePage, saveRatingsToDB } = require('../utils');
+const { getPage, parsePage, saveRatingsToDB } = require('../utils');
 
 
-module.exports.handler = async event => {
+module.exports.scrape = async event => {
   try {
-    // const page = await getPage(event);
+    const page = await getPage(event);
+    const yelpData = await parsePage(page);
 
-    // console.log('PAGE: ', page);
+    await saveRatingsToDB(yelpData);
 
     return {
       statusCode: 200,
