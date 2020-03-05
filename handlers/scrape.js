@@ -8,7 +8,7 @@ module.exports.scrape = async event => {
     const page = await getPage(event);
     const yelpData = await parsePage(page);
 
-    await saveRatingsToDB(yelpData);
+    await saveRatingsToDB(yelpData, 'Bars');
 
     return {
       statusCode: 200,
