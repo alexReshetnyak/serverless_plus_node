@@ -24,6 +24,7 @@ service: yelp-scraper
 # add plugins
 plugins:
   - serverless-offline
+  - serverless-offline-scheduler
 
 provider:
   name: aws
@@ -31,7 +32,7 @@ provider:
 
 # you can overwrite defaults here
   stage: dev
-  region: us-east-1
+  region: eu-west-1
 
 # you can define service wide environment variables here
   environment:
@@ -39,6 +40,11 @@ provider:
 
 # you can add statements to the Lambda function's IAM Role here
   iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "lambda:InvokeFunction"
+      Resource: "*"
+    
     - Effect: "Allow"
       Action:
         - dynamodb:Query
@@ -84,8 +90,15 @@ package:
     - utils/**
 
 functions:
+  launch_scrapers:
+    handler: handlers/launch_scrapers.handle
+    events:
+      # UTC 9 am first monday of each month
+      - schedule: cron(0 9 ? * 2#1 *)
+
   scrape:
-    handler: handlers/scrape.scrape
+    handler: handlers/scrape.handle
+    timeout: 10
     events:
       - http:
           path: message

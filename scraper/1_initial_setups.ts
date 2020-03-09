@@ -35,8 +35,29 @@
 // * 9.3 sls deploy -s production --aws-profile serverless-admin --verbose --force
 
 // ? Deploy one functions
-// * 9 serverless deploy function --function myFunction
+// * 10 serverless deploy function --function myFunction
 
 // ? Remove all from dev
-// * 9 serverless remove -s dev
+// * 11 serverless remove -s dev
 
+
+// ? Run launch
+// * 12 node launch.js
+
+// ? Run cron locally
+// * 13 sudo sls schedule
+
+// Service Information
+// service: yelp-scraper
+// stage: dev
+// region: eu-west-1
+// stack: yelp-scraper-dev
+// resources: 11
+// api keys:
+//   None
+// endpoints:
+//   GET - https://zbqrv4n9ul.execute-api.eu-west-1.amazonaws.com/dev/message
+// functions:
+//   scrape: yelp-scraper-dev-scrape
+// layers:
+//   None

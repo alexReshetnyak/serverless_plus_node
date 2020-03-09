@@ -3,7 +3,7 @@
 const { getPage, parsePage, saveRatingsToDB } = require('../utils');
 
 
-module.exports.scrape = async event => {
+module.exports.handle = async event => {
   try {
     const page = await getPage(event);
     const yelpData = await parsePage(page);
@@ -14,7 +14,7 @@ module.exports.scrape = async event => {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: 'Test ',
+          message: 'Scraped Bars',
         },
       ),
     };
@@ -25,7 +25,4 @@ module.exports.scrape = async event => {
       ),
     };
   }
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 };
