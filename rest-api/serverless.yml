@@ -1,0 +1,42 @@
+service: rest-api
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-1
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+package:
+  include:
+    - features/**
+    - models/**
+    - include-me-dir/**
+
+functions:
+  getTodo:
+    handler: features/read.getTodo
+    events:
+      - http:
+          path: todo
+          method: get
+
+  listTodos:
+    handler: features/read.listTodos
+    events:
+      - http:
+          path: todos
+          method: get
+
+  createTodo:
+    handler: features/create.createTodo
+    events:
+      - http:
+          path: todo
+          method: post
