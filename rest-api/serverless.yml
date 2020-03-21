@@ -8,10 +8,9 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: eu-west-1
-
-# you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+  timeout: 300
+  apiKeys:
+    - todoAPI
 
 package:
   include:
@@ -26,6 +25,7 @@ functions:
       - http:
           path: todo/{id}
           method: get
+          private: true
 
   listTodos:
     handler: features/read.listTodos
@@ -40,6 +40,7 @@ functions:
       - http:
           path: todo
           method: post
+          private: true
 
   deleteTodo:
     handler: features/delete.deleteTodo
@@ -47,6 +48,7 @@ functions:
       - http:
           path: todo/{id}
           method: delete
+          private: true
 
   updateTodo:
     handler: features/update.updateTodo
@@ -54,3 +56,4 @@ functions:
       - http:
           path: todo/{id}
           method: patch
+          private: true

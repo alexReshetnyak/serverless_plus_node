@@ -4,7 +4,9 @@ const db = require('../db');
 module.exports.createTodo = async event => {
   try {
     const body = JSON.parse(event.body);
-    if (body.task) throw new Error('task property is required');
+    if (!body.task) throw new Error('task property is required');
+    console.log('BOdy:', body);
+
     const todo = await db.todo.create({
       task: body.task
     });
@@ -22,7 +24,7 @@ module.exports.createTodo = async event => {
   } catch (error) {
     return {
       statusCode: 500,
-      error: error.message
+      body: JSON.stringify({ errorMessage: error.message })
     };
   }
 };

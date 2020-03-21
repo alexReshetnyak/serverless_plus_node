@@ -18,7 +18,7 @@ module.exports.getTodo = async event => {
   } catch (error) {
     return {
       statusCode: 500,
-      error: error.message
+      body: JSON.stringify({ errorMessage: error.message })
     };
   }
 };
@@ -38,7 +38,7 @@ module.exports.listTodos = async event => {
   } catch (error) {
     return {
       statusCode: 500,
-      error: error.message
+      body: JSON.stringify({ errorMessage: error.message })
     };
   }
 };
