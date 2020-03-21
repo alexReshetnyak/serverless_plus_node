@@ -2,33 +2,43 @@
 const db = require('../db');
 
 module.exports.getTodo = async event => {
-  const todo = "Make dinner";
+  try {
+    const { id } = event.pathParameters;
+    const todo = await db.todo.findOne({
+      where: { id },
+      attributes: ['id', 'task', 'completed']
+    });
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        todo,
-      },
-      null,
-      2
-    ),
-  };
-
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        todo
+      })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      error: error.message
+    };
+  }
 };
 
 module.exports.listTodos = async event => {
-  const listTodos = await db.todo.findAll({
-    attributes: ['id', 'task', 'completed']
-  });
+  try {
+    const listTodos = await db.todo.findAll({
+      attributes: ['id', 'task', 'completed']
+    });
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        listTodos,
-      },
-    ),
-  };
-
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        listTodos
+      })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      error: error.message
+    };
+  }
 };

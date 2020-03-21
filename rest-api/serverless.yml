@@ -24,7 +24,7 @@ functions:
     handler: features/read.getTodo
     events:
       - http:
-          path: todo
+          path: todo/{id}
           method: get
 
   listTodos:
@@ -40,3 +40,17 @@ functions:
       - http:
           path: todo
           method: post
+
+  deleteTodo:
+    handler: features/delete.deleteTodo
+    events:
+      - http:
+          path: todo/{id}
+          method: delete
+
+  updateTodo:
+    handler: features/update.updateTodo
+    events:
+      - http:
+          path: todo/{id}
+          method: patch
