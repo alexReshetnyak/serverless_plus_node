@@ -23,7 +23,7 @@
     "serverless-offline-scheduler": "^0.4.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.627.0",
+    "aws-sdk": "^2.814.0",
     "cheerio": "^1.0.0-rc.3",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
