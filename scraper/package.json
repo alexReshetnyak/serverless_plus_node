@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/alexReshetnyak/serverless_plus_node#readme",
   "devDependencies": {
-    "serverless-offline": "^5.12.1",
+    "serverless-offline": "^12.0.4",
     "serverless-offline-scheduler": "^0.4.1"
   },
   "dependencies": {
